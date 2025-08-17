@@ -32,11 +32,11 @@ For each [question] below, provide:
     {
       role: "assistant",
       content: `[answer]: For an expert-level implementation of Fibonacci sequence generation, we consider several aspects:
-- **Time Complexity**: The iterative approach runs in O(n), which is more efficient than the naive recursive O(2^n).
-- **Memory Management**: We dynamically allocate an integer array using malloc (C) or new (C++). Always check allocation success and release memory at the end.
-- **Edge Cases**: If n ≤ 0, return NULL or handle gracefully. For n = 1, allocate a single-element array.
-- **Robustness**: Validate argc and argv before use. Avoid undefined behavior from accessing \`argv[1]\` when missing.
-- **Alternatives**: For extremely large n, iterative storage is costly; matrix exponentiation or fast doubling methods (O(log n)) can be used if only the nth Fibonacci is required.
+- Time Complexity: The iterative approach runs in O(n), which is more efficient than the naive recursive O(2^n).
+- Memory Management: We dynamically allocate an integer array using malloc (C) or new (C++). Always check allocation success and release memory at the end.
+- Edge Cases: If n ≤ 0, return NULL or handle gracefully. For n = 1, allocate a single-element array.
+- Robustness: Validate argc and argv before use. Avoid undefined behavior from accessing \`argv[1]\` when missing.
+- Alternatives: For extremely large n, iterative storage is costly; matrix exponentiation or fast doubling methods (O(log n)) can be used if only the nth Fibonacci is required.
 Below is a safe and idiomatic C implementation:
 
 [code]:
@@ -120,12 +120,12 @@ export const replyExpertAskQuestion = (
     {
       role: "assistant",
       content: `[answer]: A linked list is a dynamic data structure consisting of nodes, where each node contains a data element and a pointer to the next node. For an expert-level implementation:
-- **Structure Definition**: Use a struct with \`data\` and \`next\` pointer.
-- **Head Management**: Maintain a head pointer (possibly \`NULL\` when empty).
-- **Insertion**: Dynamically allocate new nodes using \`malloc\`, checking for allocation failures.
-- **Traversal**: Iterate via next pointers until the end node (\`NULL\`).
-- **Complexity**: Appending naively is O(n), but can be optimized to O(1) with a tail pointer.
-- **Memory Safety**: Always ensure \`free()\` is called on nodes when no longer needed.
+- Structure Definition: Use a struct with \`data\` and \`next\` pointer.
+- Head Management: Maintain a head pointer (possibly \`NULL\` when empty).
+- Insertion: Dynamically allocate new nodes using \`malloc\`, checking for allocation failures.
+- Traversal: Iterate via next pointers until the end node (\`NULL\`).
+- Complexity: Appending naively is O(n), but can be optimized to O(1) with a tail pointer.
+- Memory Safety: Always ensure \`free()\` is called on nodes when no longer needed.
 This example demonstrates a simple insertion at the end of a singly linked list.
 
 [code]:
@@ -173,8 +173,8 @@ void insert_end(int value) {
 - Initialize \`head\` and maintain a \`tail\` pointer for efficient O(1) insertion (avoiding repeated traversal).
 - For each integer, allocate a node, validate memory allocation, assign data, and link it.
 - Return the head of the constructed list.
-- **Complexity**: O(n) time, O(n) space.
-- **Safety**: Return NULL if size ≤ 0 or array is NULL. Always validate malloc.
+- Complexity: O(n) time, O(n) space.
+- Safety: Return NULL if size ≤ 0 or array is NULL. Always validate malloc.
 
 [code]:
 [code-title]: build linked list from array

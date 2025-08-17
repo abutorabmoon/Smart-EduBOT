@@ -11,9 +11,7 @@ async function dbConnect() {
   }
 
   try {
-    const db = await mongoose.connect(process.env.MONGODB_URI || "", {
-      dbName: "Eeffective_Learning_db",
-    });
+    const db = await mongoose.connect(process.env.MONGODB_URI);
     // console.log("MongoDB URI:", process.env.MONGODB_URI);
     connection.isConnected = db.connections[0].readyState;
 
