@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "Node16",
+    // "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    //new added
+    "moduleResolution": "node16",
+    "baseUrl": ".",
+    "paths": {
+      // "@/*": ["./src/app/*"]
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["./types/global", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(auth)/verify-otp/page.js", "src/app/api/auth/[...nextauth]/route.ts", "src/lib/dbConnect.js"],
+  "exclude": ["node_modules"]
+}
