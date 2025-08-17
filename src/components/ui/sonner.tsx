@@ -15,11 +15,11 @@ export function Toaster({ ...props }: ToasterProps) {
       toastOptions={{
         classNames: {
           toast:
-            "group toast group-[.toaster]:bg-gray-800 group-[.toaster]:text-gray-200 group-[.toaster]:border-gray-700 group-[.toaster]:shadow-lg",
+            "group toast group-[.toaster]:bg-blue-800 group-[.toaster]:text-gray-200 group-[.toaster]:border-gray-700 group-[.toaster]:shadow-lg",
           description: "group-[.toast]:text-gray-400",
           actionButton: "group-[.toast]:bg-blue-500 group-[.toast]:text-white",
           cancelButton:
-            "group-[.toast]:bg-gray-700 group-[.toast]:text-gray-300",
+            "group-[.toast]:bg-blue-700 group-[.toast]:text-gray-300",
           error:
             "group-[.toaster]:bg-red-900/20 group-[.toaster]:border-red-500/30 group-[.toaster]:text-red-200",
         },

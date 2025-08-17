@@ -112,17 +112,17 @@ export default function UserAvatarDropdown() {
           alt="Avatar"
           width={40}
           height={40}
-          className="border-blue-600 border-2 rounded-full  shadow cursor-pointer"
+          className="border-blue-600 border-2 rounded-full  cursor-pointer"
           onClick={() => setDropdownOpen((prev) => !prev)}
         />
       ) : (
         <User
           onClick={() => setDropdownOpen((prev) => !prev)}
-          className="border-2 rounded-full text-text h-10 w-10  shadow cursor-pointer"
+          className="border-2 rounded-full text-text h-10 w-10  cursor-pointer"
         />
       )}
       {dropdownOpen && (
-        <div className="absolute right-0 mt-2 w-29 bg-stone-200 rounded-xl shadow-lg p-2 sm:p-4 z-[9999]  ">
+        <div className="absolute right-0 mt-2 w-29 bg-stone-200 rounded-xl p-2 sm:p-4 z-[9999]  ">
           <div className="flex flex-col  items-center space-x-4 mb-4 border-b border-blue-600 pb-2">
             <p className="font-medium text-text text-lg">
               {session.user.name || "User"}

@@ -136,7 +136,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 
   return (
     <div
-      className={`bg-white dark:bg-[#1e1e1e] rounded-lg border border-gray-200 dark:border-[#3e3e3e] shadow-2xl overflow-hidden ${className}`}
+      className={`bg-white dark:bg-[#1e1e1e] rounded-lg border border-gray-200 dark:border-[#3e3e3e] overflow-hidden ${className}`}
     >
       {/* Header - Professional VS Code style */}
       <div className="flex items-center justify-between px-4  bg-gray-50 dark:bg-[#2d2d30] border-b border-gray-200 dark:border-[#3e3e3e]">
@@ -180,7 +180,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
               disabled={!code}
               className={`p-2 rounded transition-colors ${
                 copied
-                  ? "bg-green-500 text-white shadow-lg"
+                  ? "bg-green-500 text-white"
                   : "text-gray-600 dark:text-[#cccccc] hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#3c3c3c] disabled:opacity-50 disabled:cursor-not-allowed"
               }`}
               title={copied ? "Copied!" : "Copy code (Ctrl+C)"}

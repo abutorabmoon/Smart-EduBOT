@@ -415,7 +415,7 @@ export default function Messages({
                         <div className="relative group">
                           <button
                             onClick={() => setOpenDialogIndex(index)}
-                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-stone-200 hover:bg-black border border-gray-600/50 hover:border-gray-500/80 text-text hover:text-white transition-all duration-200 backdrop-blur-sm"
+                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-stone-200 hover:bg-blue-600 border border-gray-600/50 hover:border-gray-500/80 text-text hover:text-white transition-all duration-200 backdrop-blur-sm"
                             aria-label="Give feedback"
                           >
                             <MessageSquare className="h-4 w-4" />
@@ -423,11 +423,6 @@ export default function Messages({
                               Give feedback
                             </span>
                           </button>
-                          {/* Tooltip */}
-                          <div className="absolute bottom-full left-0 mb-2 px-3 py-1.5 bg-gray-900/95 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-lg backdrop-blur-sm">
-                            Give feedback on this response
-                            <div className="absolute top-full left-4 border-4 border-transparent border-t-gray-900/95"></div>
-                          </div>
                         </div>
                       )}
 
@@ -435,7 +430,7 @@ export default function Messages({
                       <div className="relative group">
                         <button
                           onClick={() => handleCopyFullResponse(msg.content)}
-                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-stone-200 hover:bg-black border border-gray-600/50 hover:border-gray-500/80 text-text hover:text-white transition-all duration-200 backdrop-blur-sm"
+                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-stone-200 hover:bg-blue-600 border border-gray-600/50 hover:border-gray-500/80 text-text hover:text-white transition-all duration-200 backdrop-blur-sm"
                           aria-label="Copy response"
                         >
                           <Copy className="h-4 w-4" />
@@ -443,11 +438,6 @@ export default function Messages({
                             Copy response
                           </span>
                         </button>
-                        {/* Tooltip */}
-                        <div className="absolute bottom-full left-0 mb-2 px-3 py-1.5 bg-gray-900/95 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-lg backdrop-blur-sm">
-                          Copy complete response to clipboard
-                          <div className="absolute top-full left-4 border-4 border-transparent border-t-gray-900/95"></div>
-                        </div>
                       </div>
 
                       <FeedbackDialog

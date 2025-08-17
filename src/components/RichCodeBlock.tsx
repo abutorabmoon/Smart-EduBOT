@@ -198,7 +198,7 @@ const RichCodeBlock: React.FC<RichCodeBlockProps> = ({
   const isCppLanguage = language === 'cpp' || language === 'c' || language === 'c++';
 
   return (
-    <div className="my-4 rounded-xl overflow-hidden border border-blue-700/50 bg-blue-900 shadow-xl">
+    <div className="my-4 rounded-xl overflow-hidden border border-blue-700/50 bg-blue-900">
       {/* Header */}
       <div className="bg-blue-200 backdrop-blur-sm px-6 py-3 border-b border-blue-700/50">
         <div className="flex items-center justify-between">

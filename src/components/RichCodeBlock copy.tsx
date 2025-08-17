@@ -198,7 +198,7 @@ const RichCodeBlock: React.FC<RichCodeBlockProps> = ({
   const isCppLanguage = language === 'cpp' || language === 'c' || language === 'c++';
 
   return (
-    <div className="my-4 rounded-xl overflow-hidden border border-slate-700/50 bg-slate-900 shadow-xl">
+    <div className="my-4 rounded-xl overflow-hidden border border-slate-700/50 bg-slate-900">
       {/* Header */}
       <div className="bg-stone-200 backdrop-blur-sm px-6 py-3 border-b border-slate-700/50">
         <div className="flex items-center justify-between">
@@ -243,7 +243,7 @@ const RichCodeBlock: React.FC<RichCodeBlockProps> = ({
         </pre>
       </div> */}
 
-      <div className="relative bg-stone-100 border border-stone-300 rounded-md shadow-sm">
+      <div className="relative bg-stone-100 border border-stone-300 rounded-md">
         <pre className="p-6 overflow-x-auto scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-800/40 hover:scrollbar-thumb-slate-500 transition-all duration-300">
           <code className="block">
             {isCppLanguage ? (

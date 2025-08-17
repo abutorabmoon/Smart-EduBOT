@@ -32,7 +32,7 @@ export function MobileSidebar({ user }: SidebarProps) {
         <Button
           variant="outline"
           size="icon"
-          className="mt-3 ml-3 text-white shrink-0 bg-primary   border-2  shadow-2xl"
+          className="mt-3 ml-3 text-white shrink-0 bg-primary   border-2 "
         >
           <span className="sr-only">Toggle navigation menu</span>
           <svg className="text-black  h-5 w-5" viewBox="0 0 24 24" fill="none">
@@ -293,7 +293,7 @@ function SidebarContent({
       </div>
 
       {/* Footer */}
-      <div className="mt-auto  shadow-2xl rounded-xl">
+      <div className="mt-auto rounded-xl">
         <div className="flex items-center gap-3 bg-blue-200 rounded-xl p-5">
           {user?.image ? (
             <Image
@@ -301,10 +301,10 @@ function SidebarContent({
               alt="Avatar"
               width={40}
               height={40}
-              className="border-blue-600 border-2 rounded-full  shadow cursor-pointer"
+              className="border-blue-600 border-2 rounded-full cursor-pointer"
             />
           ) : (
-            <User className="border-border border-2 rounded-full text-text h-10 w-10  shadow cursor-pointer" />
+            <User className="border-border border-2 rounded-full text-text h-10 w-10 cursor-pointer" />
           )}
           <div className="flex-1 min-w-0">
             <p className="text-md text-text  font-medium truncate">

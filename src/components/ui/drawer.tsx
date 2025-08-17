@@ -48,7 +48,7 @@ const DrawerContent = React.forwardRef<
       )}
       {...props}
     >
-      <div className="w-full max-w-md rounded-lg bg-stone-200 text-text shadow-lg p-6 sm:p-5">
+      <div className="w-full max-w-md rounded-lg bg-stone-200 text-text p-6 sm:p-5">
         {children}
       </div>
     </DrawerPrimitive.Content>
