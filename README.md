@@ -1,82 +1,149 @@
 # Smart EduBOT - AI-Powered Learning Platform
 
-## Overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Smart EduBOT is an intelligent learning platform that leverages Large Language Models (LLMs) to provide personalized educational assistance to students. The platform allows users to interact with an AI assistant that can answer programming questions, provide code examples, and explain complex concepts based on the user's skill level and preferences.
+## 📚 About The Project
 
-## Features
+Smart EduBOT is an intelligent learning platform that leverages Large Language Models (LLMs) to provide personalized educational assistance to students. The platform creates an adaptive learning environment where students can interact with an AI assistant that tailors its responses based on skill level, learning preferences, and specific educational needs.
 
-### Core Functionality
+The system is designed to support the learning process by providing explanations, code examples, debugging assistance, and theoretical concepts in a conversational format that maintains context throughout the learning session. By collecting detailed feedback on student satisfaction and understanding, Smart EduBOT continuously improves its educational effectiveness.
 
-- **Question Type Selection**: Users can specify their skill level (Beginner, Intermediate, Expert) to receive appropriately tailored responses.
-- **Answer Style Customization**: Choose between theory-focused or code-focused responses based on learning preferences.
-- **Code Editor Integration**: Submit code snippets for explanation, debugging, or improvement.
-- **Contextual Conversations**: The AI maintains context across conversation turns for coherent learning experiences.
-- **Feedback Collection**: Students can rate responses and provide detailed feedback on their learning experience.
+### 🌟 Key Features
 
-### User Experience
+#### Core Functionality
 
-- **Intuitive Chat Interface**: Clean, responsive design for seamless interaction with the AI assistant.
-- **Session Management**: Save and revisit previous learning sessions.
-- **User Authentication**: Secure login and registration with email verification.
-- **Personalized Profiles**: Track learning progress and preferences.
+- **Skill-Based Question Types**: Students can specify their proficiency level (Beginner, Intermediate, Expert) to receive appropriately tailored responses that match their current understanding and learning needs.
 
-## Technology Stack
+- **Customizable Answer Styles**: Users can choose between theory-focused explanations, code-focused examples, or a balanced approach based on their learning preferences and the specific concepts they're trying to master.
 
-### Frontend
+- **Integrated Code Editor**: Submit, edit, and receive feedback on code snippets directly within the platform. The Monaco Editor integration provides syntax highlighting, auto-completion, and other IDE-like features to enhance the coding experience.
 
-- **Next.js**: React framework with App Router for server-side rendering and routing
-- **TypeScript**: Type-safe JavaScript for improved developer experience
-- **TailwindCSS**: Utility-first CSS framework for responsive design
-- **Radix UI**: Accessible UI components
-- **Monaco Editor**: Code editor component for handling code snippets
+- **Contextual Learning Conversations**: The AI maintains conversation history and context across multiple turns, allowing for progressive learning experiences where concepts build upon previous explanations.
 
-### Backend
+- **Comprehensive Feedback Collection**: Students can rate responses, identify understood and misunderstood topics, and provide detailed feedback on information gaps, creating a rich dataset for educational research and platform improvement.
 
-- **Next.js API Routes**: Server-side API endpoints
-- **MongoDB**: NoSQL database for storing user data, sessions, and feedback
-- **Mongoose**: MongoDB object modeling for Node.js
-- **NextAuth.js**: Authentication solution for Next.js applications
+#### User Experience
+
+- **Intuitive Chat Interface**: Clean, responsive design with real-time typing indicators, code highlighting, and markdown support for rich educational content delivery.
+
+- **Session Management**: Save, name, and revisit previous learning sessions, allowing students to continue their learning journey across multiple study sessions without losing context.
+
+- **Secure Authentication**: Multi-factor authentication with email verification ensures secure access to personalized learning experiences and historical data.
+
+- **Personalized Learning Profiles**: Track learning progress, preferred topics, and customization settings to provide increasingly personalized educational experiences over time.
+
+- **Responsive Design**: Fully responsive interface that works seamlessly across desktop, tablet, and mobile devices, enabling learning on any device.
+
+## 🛠️ Technology Stack
+
+### Frontend Architecture
+
+- **Next.js (v13.5+)**: React framework with App Router for server-side rendering, optimized routing, and improved performance
+- **TypeScript**: Strongly-typed JavaScript implementation for enhanced code quality and developer experience
+- **TailwindCSS**: Utility-first CSS framework enabling rapid UI development with consistent design patterns
+- **Radix UI**: Headless, accessible component primitives that ensure UI elements meet accessibility standards
+- **Monaco Editor**: The code editor that powers VS Code, integrated for handling code snippets with syntax highlighting and intelligent features
+- **React Markdown**: For rendering rich educational content with proper formatting
+
+### Backend Infrastructure
+
+- **Next.js API Routes**: Server-side API endpoints for handling authentication, chat sessions, and feedback collection
+- **MongoDB**: NoSQL database for flexible schema design and efficient storage of user data, sessions, and feedback
+- **Mongoose**: MongoDB object modeling for Node.js, providing schema validation and relationship management
+- **NextAuth.js**: Complete authentication solution with support for email/password, OAuth, and multi-factor authentication
+- **Nodemailer**: Module for sending verification emails and notifications
 
 ### AI Integration
 
-- **Google Gemini API**: Powers the AI assistant's responses
-- **Custom Prompt Engineering**: Tailored prompts based on question type and user preferences
+- **Google Gemini API**: Powers the AI assistant's responses with state-of-the-art language understanding and generation capabilities
+- **OpenAI Integration**: Alternative AI provider support (commented out in the codebase but available for implementation)
+- **Custom Prompt Engineering**: Sophisticated prompt templates tailored for different question types, skill levels, and learning contexts
+- **Response Parsing**: Intelligent parsing of AI responses to extract structured data for feedback analysis and topic identification
 
-## Architecture
+## 🏗️ Architecture
 
 ### Data Models
 
-- **User**: Stores user information, authentication details, and session references
-- **Session**: Contains conversation history and metadata for each learning session
-- **Feedback**: Captures student satisfaction, understood/not understood topics, and information gaps
+- **User Model**: Stores user authentication details, profile information, learning preferences, and references to learning sessions
+  ```typescript
+  interface IUser {
+    email: string;
+    password: string;
+    name: string;
+    isVerified: boolean;
+    sessions: string[];
+    preferences: {
+      defaultQuestionType: string;
+      defaultAnswerStyle: string;
+    };
+  }
+  ```
+
+- **Session Model**: Contains conversation history, metadata, and contextual information for each learning interaction
+  ```typescript
+  interface ISession {
+    sessionId: string;
+    title?: string;
+    messages: IMessage[];
+    createdAt: Date;
+    updatedAt: Date;
+  }
+  ```
+
+- **Feedback Model**: Captures detailed student feedback including satisfaction ratings, understood/not understood topics, and information gaps
+  ```typescript
+  interface IFeedback {
+    userId: ObjectId;
+    sessionId: string;
+    questionType: "Beginner" | "Intermediate" | "Expert";
+    answerStyle: "Theory" | "Code" | "Neutral";
+    studentPrompt: string;
+    chatbotResponse: string;
+    studentSatisfaction: number;
+    codeContent?: string;
+    codeLanguage?: string;
+    last2Messages?: string[];
+  }
+  ```
 
 ### Key Components
 
-- **LLM Service**: Handles communication with the Gemini API, including prompt construction and response parsing
-- **Session Service**: Manages creation, retrieval, and updating of learning sessions
-- **Authentication System**: Handles user registration, login, and account verification
-- **Chat Interface**: Provides the UI for interacting with the AI assistant
+- **LLM Service**: Manages communication with AI providers, dynamically selecting appropriate prompts based on question type, skill level, and conversation context
 
-## Setup and Installation
+- **Session Service**: Handles the creation, retrieval, updating, and management of learning sessions, ensuring conversation continuity
+
+- **Authentication System**: Provides secure user registration, login, email verification, and session management
+
+- **Chat Interface**: Delivers an intuitive, responsive UI for interacting with the AI assistant, with support for text, code, and rich media content
+
+- **Feedback Collection System**: Gathers structured feedback on learning experiences to improve AI responses and identify educational gaps
+
+## 🚀 Setup and Installation
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js (v18.0.0 or higher)
 - MongoDB instance (local or cloud-based)
-- Google Gemini API key
+- Google Gemini API key (or OpenAI API key if using that integration)
+- Email service for verification emails
 
 ### Environment Variables
 
-Create a `.env` file in the root directory with the following variables:
+Create a `.env.local` file in the root directory with the following variables:
 
-```
+```env
+# AI Provider
 GEMINI_API_KEY=your_gemini_api_key
+# OPENAI_API_KEY=your_openai_api_key (if using OpenAI)
+
+# Database
 MONGODB_URI=your_mongodb_connection_string
+
+# Authentication
 NEXTAUTH_SECRET=your_nextauth_secret
 NEXTAUTH_URL=http://localhost:3000
 
-# Email configuration (for verification)
+# Email Configuration
 EMAIL_SERVER_USER=your_email_username
 EMAIL_SERVER_PASSWORD=your_email_password
 EMAIL_SERVER_HOST=your_email_host
@@ -87,33 +154,105 @@ EMAIL_FROM=your_email_address
 ### Installation Steps
 
 1. Clone the repository
-2. Install dependencies:
+   ```bash
+   git clone https://github.com/yourusername/smart-edubot.git
+   cd smart-edubot
+   ```
+
+2. Install dependencies
    ```bash
    npm install
    ```
-3. Run the development server:
+
+3. Set up environment variables as described above
+
+4. Run the development server
    ```bash
    npm run dev
    ```
-4. Access the application at `http://localhost:3000`
 
-## Usage Guide
+5. Access the application at `http://localhost:3000`
 
-### Getting Started
+6. For production deployment
+   ```bash
+   npm run build
+   npm start
+   ```
 
-1. **Register an Account**: Create a new account with your email and verify it
-2. **Start a New Session**: Click on "New Chat" to begin a learning session
-3. **Select Question Type**: Choose your skill level (Beginner, Intermediate, Expert)
-4. **Choose Answer Style**: Select whether you prefer theory-focused or code-focused responses
-5. **Ask a Question**: Type your programming question in the chat input
+## 📋 Project Structure
+
+```
+smart-edubot/
+├── public/                  # Static assets
+├── src/
+│   ├── app/                 # Next.js App Router pages and API routes
+│   │   ├── (auth)/          # Authentication-related pages
+│   │   ├── (chat)/          # Chat interface and session pages
+│   │   ├── api/             # API endpoints
+│   │   ├── components/      # App-specific components
+│   │   └── utils/           # Utility functions
+│   ├── codex-prompts/       # AI prompt templates for different question types
+│   ├── components/          # Shared React components
+│   │   ├── ui/              # UI primitives and design system
+│   │   └── hooks/           # Custom React hooks
+│   ├── hooks/               # Global hooks
+│   ├── lib/                 # Core services and utilities
+│   │   ├── llm.ts           # LLM integration service
+│   │   ├── sessionService.ts # Session management
+│   │   └── types/           # TypeScript type definitions
+│   └── model/               # Database models and schemas
+├── .env.local               # Environment variables (not in repo)
+├── next.config.js           # Next.js configuration
+├── package.json             # Project dependencies and scripts
+├── tailwind.config.js       # TailwindCSS configuration
+└── tsconfig.json            # TypeScript configuration
+```
+
+## 🧠 Usage Guide
+
+### Student Journey
+
+1. **Registration and Authentication**:
+   - Create an account with email and password
+   - Verify email through the OTP sent to your inbox
+   - Log in to access the learning platform
+
+2. **Starting a Learning Session**:
+   - Click "New Chat" to begin a fresh learning session
+   - Select your skill level (Beginner, Intermediate, Expert)
+   - Choose your preferred answer style (Theory, Code, Neutral)
+
+3. **Asking Questions**:
+   - Type your programming or concept question in the chat input
+   - For code-related questions, use the code editor to submit code snippets
+   - Receive tailored responses based on your selected preferences
+
+4. **Providing Feedback**:
+   - Rate the helpfulness of responses on a scale of 1-5
+   - Identify specific topics you understood or didn't understand
+   - Note any information gaps for future improvement
+
+5. **Managing Sessions**:
+   - Access previous learning sessions from the sidebar
+   - Continue conversations where you left off
+   - Name sessions for easy reference
 
 ### Advanced Features
 
-- **Code Editor**: Click the code icon to open the code editor for submitting code snippets
-- **Session History**: Access previous learning sessions from the sidebar
-- **Feedback**: Rate responses and provide feedback to improve your learning experience
+- **Code Editor Integration**: Click the code icon to open the Monaco editor for submitting, editing, and receiving feedback on code snippets
+- **Context Management**: The AI maintains conversation history to provide coherent, progressive learning experiences
+- **Profile Customization**: Update your profile settings and learning preferences
+- **Session Export**: Save or share your learning sessions for future reference
 
-## Contributing
+## 🔮 Roadmap
+
+- **Enhanced Analytics Dashboard**: Visualize learning progress and identify knowledge gaps
+- **Collaborative Learning**: Share sessions with peers or instructors for feedback
+- **Custom Learning Paths**: AI-generated learning recommendations based on progress
+- **Content Integration**: Connect with educational resources and documentation
+- **Voice Interaction**: Support for voice input and text-to-speech output
+
+## 🤝 Contributing
 
 Contributions to Smart EduBOT are welcome! Please follow these steps:
 
@@ -123,12 +262,27 @@ Contributions to Smart EduBOT are welcome! Please follow these steps:
 4. Push to the branch: `git push origin feature/your-feature-name`
 5. Open a pull request
 
-## License
+### Development Guidelines
+
+- Follow the existing code style and architecture patterns
+- Write tests for new features using the testing framework
+- Document your code and update the README as needed
+- Ensure accessibility standards are maintained
+
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Acknowledgments
+## 📞 Contact
+
+Project Maintainer - [your-email@example.com](mailto:your-email@example.com)
+
+Project Link: [https://github.com/yourusername/smart-edubot](https://github.com/yourusername/smart-edubot)
+
+## 🙏 Acknowledgments
 
 - Google Gemini for providing the AI capabilities
 - Next.js team for the excellent framework
+- MongoDB for the flexible database solution
 - All contributors who have helped improve this platform
+- Educational research community for insights on effective learning methodologies
