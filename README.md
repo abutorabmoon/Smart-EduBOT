@@ -155,7 +155,7 @@ EMAIL_FROM=your_email_address
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/smart-edubot.git
+   git clone https://github.com/abutorabmoon/Smart-EduBOT
    cd smart-edubot
    ```
 
@@ -275,9 +275,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📞 Contact
 
-Project Maintainer - [your-email@example.com](mailto:your-email@example.com)
+Project Maintainer - [abutorabmoon@gmail.com](mailto:your-email@example.com)
 
-Project Link: [https://github.com/yourusername/smart-edubot](https://github.com/yourusername/smart-edubot)
+Project Link: [https://github.com/abutorabmoon/Smart-EduBOT](https://github.com/abutorabmoon/Smart-EduBOT)
 
 ## 🙏 Acknowledgments
 
