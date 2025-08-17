@@ -213,7 +213,7 @@ Example format:
 
   // Apply answer style preference
   if (answerStyle === "Theory") {
-    systemPrompt += `\n\nIMPORTANT: Focus on theoretical explanations and concepts. Prioritize explaining the underlying principles, theories, and academic knowledge. Include definitions, historical context, and conceptual frameworks. While you may include minimal code examples where necessary, your primary focus should be on theoretical understanding rather than implementation details.`;
+    systemPrompt += `\n\nIMPORTANT: Focus on theoretical explanations and concepts. Prioritize explaining the underlying principles, theories, and academic knowledge. Include definitions, historical context, and conceptual frameworks. While you may include minimal code examples where necessary, your primary focus should be on theoretical understanding rather than implementation details. Don't provide any code just give explanation theory`;
   } else if (answerStyle === "Code") {
     systemPrompt += `\n\nIMPORTANT: Focus on practical code examples and implementation. Prioritize showing working code, implementation patterns, and practical solutions. Include detailed code examples with thorough comments explaining each part. While you should explain concepts briefly, your primary focus should be on how to implement solutions in code rather than theoretical discussions.`;
   }
