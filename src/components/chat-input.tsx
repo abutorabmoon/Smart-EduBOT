@@ -23,6 +23,7 @@ interface ChatInputProps {
   placeholder?: string;
 }
 
+
 export function ChatInput({
   input,
   onInputChange,
